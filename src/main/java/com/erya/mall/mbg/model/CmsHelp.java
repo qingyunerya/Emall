@@ -1,9 +1,11 @@
 package com.erya.mall.mbg.model;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
+@ApiModel(value = "帮助")
 public class CmsHelp implements Serializable {
     private Long id;
 
@@ -141,4 +143,5 @@ public class CmsHelp implements Serializable {
         sb.append("]");
         return sb.toString();
     }
+
 }

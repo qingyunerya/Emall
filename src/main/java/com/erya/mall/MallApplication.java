@@ -1,6 +1,5 @@
 package com.erya.mall;
 
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -13,10 +12,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @SpringBootApplication
-@Slf4j
 public class MallApplication {
 
     public static void main(String[] args) throws UnknownHostException {
+
+        Logger log = LoggerFactory.getLogger(MallApplication.class);
         ApplicationContext context = SpringApplication.run(MallApplication.class, args);
         context.getEnvironment();
         Environment env = context.getEnvironment();
@@ -24,6 +24,7 @@ public class MallApplication {
         String port = env.getProperty("server.port");
 
         String path = env.getProperty("server.servlet.context-path");
+        path = path == null ? "" : path;
         log.info("\n----------------------------------------------------------\n\t" +
                 "SPD:\n\t" +
                 "Local: \t\thttp://localhost:" + port + path + "/\n\t" +
